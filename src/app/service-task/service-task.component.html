@@ -1,0 +1,5 @@
+<label>name:</label>
+<input name="text" #templateRefName>
+<button class="btn btn-primary" [disabled]="templateRefName.value.length === 0" (click)="submit(templateRefName)">submit</button>
+
+<p *ngIf="getName"> my name is {{getName}}</p>

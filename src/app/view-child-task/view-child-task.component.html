@@ -1,0 +1,17 @@
+<h1 #heading></h1>
+
+<input type="text" #typedWord (keyup)="vowelFn(typedWord.value)">
+
+
+<div *ngIf="typedWord.value.length > 0" class="text-center">
+    <h3>Results</h3>
+    Number of characters : {{typedWord.value.length}}
+    <p>Vowels</p>
+    <ul style="list-style:none">
+        <li>a:{{vowelArr[0]}}</li>
+        <li>e:{{vowelArr[1]}}</li>
+        <li>i:{{vowelArr[2]}}</li>
+        <li>o:{{vowelArr[3]}}</li>
+        <li>u:{{vowelArr[4]}}</li>
+    </ul>
+</div>

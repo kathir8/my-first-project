@@ -1,0 +1,13 @@
+<div class="mt-5 ms-5">
+    <div class="btn btn-primary mx-5" (click)="selectedParent='color'">Colors</div>
+    <div class="btn btn-primary mx-5" (click)="selectedParent='fruit'">Fruits</div>
+    <div class="btn btn-primary mx-5" (click)="selectedParent='animal'">Animals</div>
+    <div class="btn btn-dark ms-5" (click)="selectedParent='';selectedItem=''">Reset</div>
+    <p *ngIf="selectedItem">Selected item is {{selectedItem}}</p>    
+</div>
+
+<hr>
+
+<app-child-task [selected]="selectedParent" (sendMsgEmitter)="selectedItem = $event" >
+    <h6>This will show in chils using the concept of content projection</h6>
+</app-child-task>

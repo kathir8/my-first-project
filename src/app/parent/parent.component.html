@@ -1,0 +1,7 @@
+<div class="parent-div">
+    <p>parent div</p>
+    <label>name:</label>
+    <input type="text" [(ngModel)]="yourName">
+    <p>Your age is {{age}}</p>
+</div>
+<app-child [fromParent]="yourName"  (sendMsgEmitter)="recieveMsg($event)"/>template

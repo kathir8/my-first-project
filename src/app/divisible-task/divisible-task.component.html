@@ -1,0 +1,17 @@
+
+
+<div class="row g-0">
+    <div class="col-2 btn-div g-0">
+        <div class="btn btn-success" [ngClass]="{active : !isDisabled && selected === 2}" (click)="divisibleBtn(2)">Number divisible by 2</div>
+        <div class="btn btn-success" [ngClass]="{active : !isDisabled && selected === 3}" (click)="divisibleBtn(3)">Number divisible by 3</div>
+        <div class="btn btn-success" [ngClass]="{active : !isDisabled && selected === 5}" (click)="divisibleBtn(5)">Number divisible by 5</div>
+        <div class="btn btn-success" [ngClass]="{active : !isDisabled && selected === 10}" (click)="divisibleBtn(10)">Number divisible by 10</div>
+        <button class="btn btn-dark w-100" [disabled]="isDisabled" (click)="isDisabled=!isDisabled ;selected = 0">Clear</button>
+    </div>
+    <div class="col-8 numbers p-2">
+       <p *ngFor="let num of numArr" class="numberDiv" [ngClass]="{active: num % selected === 0}">
+            {{num}}
+       </p>
+    </div>
+</div>
+<p class="text-success text-center" *ngIf="!isDisabled">Numbers highlighted above are divisible by {{selected}}</p>

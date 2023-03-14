@@ -1,0 +1,7 @@
+ 
+ <ng-content/>
+ <div class="btn btn-primary" [ngClass]="{
+    'd-none':selected && selected !== item.type
+}" *ngFor="let item of content" (click)="this.sendMsgEmitter.emit(item.name)">
+    {{item.name}}
+</div>

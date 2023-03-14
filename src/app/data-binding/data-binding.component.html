@@ -1,0 +1,47 @@
+
+<p>My name is <b>{{name}}</b></p>
+<p>My age is {{age}}</p>
+<p>My city is {{getCity()}}</p>
+
+<hr>
+<button class="btn btn-success" [disabled]="isDisabled" (click)="isDisabled = !isDisabled">Click me!</button>
+<hr>
+
+<br><br>
+<label>Search</label>
+<input type="text" [value]="searchValue" />
+
+<hr>
+<br><br>
+<label>change the name by onlick</label>
+<button class="btn btn-primary" (click)="changeName()">Change</button>
+
+<hr>
+<br><br>
+<button class="btn btn-primary" (click)="name='kathir changed'">Change</button>
+<p>{{name}}</p>
+
+<hr>
+
+<!-- event binding -->
+<input type="text" (input)="getDataEventBinding($event)" />
+<p>{{name}}</p>
+
+<hr>
+<!-- two way binding -->
+<input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone:true}" />
+<p>{{name}}</p>
+
+<hr>
+
+<br><br><br>
+<hr>
+
+<input type="text" [(ngModel)]="name" />
+
+<button class="btn btn-primary" (click)="addName()" [disabled]="btnDisabled">Add</button>
+
+<p>{{text}}</p>
+
+
+<hr>

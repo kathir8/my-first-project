@@ -1,0 +1,12 @@
+ <label>Name : </label>
+
+ <input type="text" class="form-control w-25" [(ngModel)]="name"/>
+ <button class="btn btn-primary mt-2" [disabled]="name === ''" (click)="resetHandler()">Reset</button>
+ <p *ngIf="name,else elseBlock">Your name is <b>{{name}}</b></p>
+ <ng-template #elseBlock>
+    <p>Please enter your name</p>
+ </ng-template>
+
+
+
+ <hr>

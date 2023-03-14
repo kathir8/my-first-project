@@ -1,0 +1,49 @@
+<div class="form">
+    <h2 id="registration">Registraion Form</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div formGroupName="personaldetails">
+        <label for="fname">First name</label>
+        <input type="text" id="fname" class="form-control" placeholder="Your name .." formControlName="firstname">
+        
+        <label for="lname">Last name</label>
+        <input type="text" id="lname" class="form-control" placeholder="Your last name .." formControlName="lastname">
+        
+        <label for="email">email</label>
+        <input type="email" id="email" class="form-control" placeholder="Your email .." formControlName="email">
+        <div *ngIf="reactiveForm.get('personaldetails.email')?.touched && reactiveForm.get('personaldetails.email')?.errors?.['required']" class="text-danger">
+            Email is required.
+        </div>
+        <div *ngIf="reactiveForm.get('personaldetails.email')?.touched && reactiveForm.get('personaldetails.email')?.errors?.['email']" class="text-danger">
+            Email is not valid.
+        </div>
+      </div>
+        <label for="country">Country</label>
+        <select id="country" class="form-control" formControlName="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="india">India</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <br>
+        <input type="radio" id="male" value="male" formControlName="gender">
+        <label for="male">Male</label>
+        <input type="radio" id="female" value="female" formControlName="gender">
+        <label for="gender">Female</label>
+        <input type="radio" id="other" value="other" formControlName="gender">
+        <label for="other">Other</label>
+
+        <br><br>
+
+        <label>Hobbies <i>(Optional)</i></label>
+        <div class="form-inline">
+            <label><input type="checkbox" value="sports" formControlName="hobbies">Sports</label>
+            <label><input type="checkbox" value="movies" formControlName="hobbies"> Movies</label>
+            <label><input type="checkbox" value="music" formControlName="hobbies"> Music</label>
+        </div>
+
+        <button>Submit</button>
+
+    </form>
+</div>

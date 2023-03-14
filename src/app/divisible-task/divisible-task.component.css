@@ -1,0 +1,26 @@
+.btn {
+    display: block;
+    margin-top: 20px;
+}
+
+.btn.active{
+    background-color: blue;
+}
+
+.btn-div {
+    margin-top: 25px;
+}
+
+.numberDiv {
+    float: left;
+    margin-left: 50px;
+    width: 75px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.numberDiv.active{
+    background: #ccc;
+    color: green;
+}

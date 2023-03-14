@@ -1,0 +1,20 @@
+<p [ngClass]="
+{
+    red:highLightColor === 'red',
+    'green-color':highLightColor === 'green',
+    'blue':highLightColor === 'blue'
+}">attr-dir works!</p>
+
+<div class="btn btn-danger" (click)="highLight('red')">Red</div>
+<div class="btn btn-success mx-3" (click)="highLight('green')">Green</div>
+<div class="btn btn-primary" (click)="highLight('blue')">Blue</div>
+
+<hr>
+
+<p [ngStyle]="{
+    color: isBlue ? 'blue' : 'black'
+}">Toggle color</p>
+
+<div class="btn btn-primary" (click)="isBlue = !isBlue">Toggle</div>
+
+<hr>
