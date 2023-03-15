@@ -23,6 +23,8 @@ import { TempRefAgeComponent } from './temp-ref-age/temp-ref-age.component';
 import { CustomDirComponent } from './custom-dir/custom-dir.component';
 import { SetBackgroundDirective } from './customDirective/set-background.directive';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
+import { MomentPipe } from './custom-pipe/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     TempRefAgeComponent,
     CustomDirComponent,
     SetBackgroundDirective,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CustomPipeComponent,
+    MomentPipe
   ],
   imports: [
     BrowserModule,
