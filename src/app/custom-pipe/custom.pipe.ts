@@ -10,3 +10,17 @@ export class MomentPipe implements PipeTransform {
   }
 
 }
+@Pipe({
+  name: 'filter'
+  // pure:false
+})
+export class FilterPipe implements PipeTransform {
+
+  transform(value: any, field: string, filterValue: string): any {
+    if (value && value.length > 0) {
+      return value.filter((x: { [key: string]: any }) => x[field] === filterValue)
+    }
+    return []
+  }
+
+}

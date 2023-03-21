@@ -25,8 +25,6 @@ export class HttpListComponent implements OnInit {
       this.users = res
     }, error => {
       this.loading = false
-      console.log("error");
-      console.log(error);
     }, () => {
       console.log("completed");
     })

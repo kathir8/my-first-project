@@ -24,7 +24,7 @@ import { CustomDirComponent } from './custom-dir/custom-dir.component';
 import { SetBackgroundDirective } from './customDirective/set-background.directive';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
-import { MomentPipe } from './custom-pipe/custom.pipe';
+import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { MomentPipe } from './custom-pipe/custom.pipe';
     SetBackgroundDirective,
     ReactiveFormComponent,
     CustomPipeComponent,
-    MomentPipe
+    MomentPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
