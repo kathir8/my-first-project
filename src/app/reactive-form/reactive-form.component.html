@@ -1,5 +1,53 @@
 <div class="form">
     <h2 id="registration">Registraion Form</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example11">Email address</label>
+            <input type="email" id="form2Example11" class="form-control" formControlName="email"
+                [ngClass]="{ 'is-invalid': loginSubmitted && f['email'].errors }" placeholder="Enter your email address" />
+        
+            <div *ngIf="loginSubmitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+        </div>
+        
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example22" style="width: 100%;">
+                <span>Password</span>
+                <a class="text-muted float-end" href="#!" routerLink='/signup'>Forgot password?</a>
+            </label>
+            <div style="position: relative;">
+                <input [type]="isPwdEnabled ? 'text' : 'password'" id="form2Example22" class="form-control"
+                    formControlName="password" [ngClass]="{ 'is-invalid': loginSubmitted && f['password'].errors }"
+                    placeholder="Enter your password" />
+                <button type="button" style="background: transparent;border:0;" class="show-pwd" (click)="isPwdEnabled = !isPwdEnabled">
+                    <i class="fa fa-eye" *ngIf="!isPwdEnabled"></i>
+                    <i class="fa fa-eye-slash" *ngIf="isPwdEnabled"></i>
+                </button>
+            </div>
+        
+            <div *ngIf="loginSubmitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+            </div>
+        </div>
+        
+        <div class="text-center pt-1 mb-3 pb-1">
+            <div class="mt-2 mb-3">
+                <button class="btn btn-primary btn-block fa-lg" [disabled]="isLoading" (click)="login()" type="button">
+                    <ng-template #loadingTemplate>
+                        <i class="fa fa-spinner fa-spin"></i> Loading...
+                    </ng-template>
+                    <ng-container *ngIf="!isLoading; else loadingTemplate">
+                        Login
+                    </ng-container>
+                </button>
+        
+            </div>
+        </div>
+    </form>
+
     <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
       <div formGroupName="personaldetails">
         <label for="fname">First name</label>
@@ -28,22 +76,22 @@
         <label for="gender">Gender:</label>
         <br>
         <input type="radio" id="male" value="male" formControlName="gender">
-        <label for="male">Male</label>
+        <label for="male" class="me-2">Male</label>
+
         <input type="radio" id="female" value="female" formControlName="gender">
-        <label for="gender">Female</label>
+        <label for="gender" class="me-2">Female</label>
         <input type="radio" id="other" value="other" formControlName="gender">
         <label for="other">Other</label>
 
         <br><br>
-
-        <label>Hobbies <i>(Optional)</i></label>
-        <div class="form-inline">
-            <label><input type="checkbox" value="sports" formControlName="hobbies">Sports</label>
-            <label><input type="checkbox" value="movies" formControlName="hobbies"> Movies</label>
-            <label><input type="checkbox" value="music" formControlName="hobbies"> Music</label>
+        <div formArrayName="hobbies">
+            <button class="btn btn-primary my-2" (click)="addHobby()">Add Hobby</button>
+            <div class="form-group mb-2" *ngFor="let hobby of hobbyControls;let i = index">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
         </div>
 
-        <button>Submit</button>
+        <button class="btn btn-primary">Submit</button>
 
     </form>
 </div>
