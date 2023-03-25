@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.c-pointer{
+    cursor: pointer;
+}
+
+.errorSelect2 .select2-container--default .select2-selection--single,
+.errorBox {
+    border: 1px solid #df7575;
+    background: #e7919129;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 37px !important;
+}

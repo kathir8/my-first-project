@@ -25,6 +25,8 @@ import { SetBackgroundDirective } from './customDirective/set-background.directi
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
+import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
+import { Select2Module } from 'ng-select2-component';
 
 @NgModule({
   declarations: [
@@ -50,13 +52,15 @@ import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
     ReactiveFormComponent,
     CustomPipeComponent,
     MomentPipe,
-    FilterPipe
+    FilterPipe,
+    ReactiveFormTaskComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Select2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
