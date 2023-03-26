@@ -2,7 +2,8 @@
     <h3>Login</h3>
     <form [formGroup]="loginForm" (submit)="loginSubmit()">
         <label>Email</label>
-        <input type="text" class="form-control" formControlName="email" [ngClass]="{'errorBox': loginSubmitted && f['email'].errors}">
+        <input type="text" class="form-control" formControlName="email"
+            [ngClass]="{'errorBox': loginSubmitted && f['email'].errors}">
         <div *ngIf="loginSubmitted && f['email'].errors">
             <div class="text-danger" *ngIf="f['email'].errors['required']">Email is required</div>
             <div class="text-danger" *ngIf="f['email'].errors['email']">Email is invalid</div>
@@ -10,7 +11,8 @@
 
         <label class="mt-2">Password</label>
         <div class="position-relative">
-            <input [type]="showPassword ? 'text' : 'password'" class="form-control" [ngClass]="{'errorBox': loginSubmitted && f['password'].errors}" formControlName="password">
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+                [ngClass]="{'errorBox': loginSubmitted && f['password'].errors}" formControlName="password">
             <i class="far password-icon c-pointer" [ngClass]="showPassword ? 'fa-eye-slash': 'fa-eye'"
                 (click)="showPassword =!showPassword"></i>
         </div>
@@ -29,31 +31,42 @@
     <form [formGroup]="personalForm" (submit)="personalSubmit()">
         <div class="row">
             <div class="col">
-                <label>Name</label>
+                <label>Name <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" formControlName="name"
                     [ngClass]="{'errorBox': personalSubmitted && p['name'].errors}">
                 <div class="text-danger" *ngIf="personalSubmitted && p['name'].errors">Name is required</div>
             </div>
             <div class="col">
                 <label>Mobile</label>
-                <input type="text" class="form-control" formControlName="mobile" maxlength="10" (keypress)="filterCharCode($event,'number')"
+                <input type="text" class="form-control" formControlName="mobile" maxlength="10"
+                    (keypress)="filterCharCode($event,'number')"
                     [ngClass]="{'errorBox': personalSubmitted && p['mobile'].errors}">
-                <div class="text-danger" *ngIf="personalSubmitted && p['mobile'].errors">Mobile number must be 10 digits</div>
+                <div class="text-danger" *ngIf="personalSubmitted && p['mobile'].errors">Mobile number must be 10 digits
+                </div>
             </div>
         </div>
 
         <form formGroupName="addressDetails" class="mb-3">
             <h5 class="my-3">Address Details</h5>
             <form formGroupName="presentAddress">
-                <h6 class="mb-2">Present Address</h6>
+                <h6 class="mb-2">Present Address <span class="text-danger">*</span></h6>
                 <div class="row">
                     <div class="col">
                         <label>Country</label>
-                        <select2 [data]="prstCountry" class="select2drpdwn" [ngClass]="{'errorSelect2': personalSubmitted && prsntAdrs['country'].errors}" placeholder="select a country" formControlName="country" (update)="updateCountry($event)"></select2>
+                        <select2 [data]="prstCountry" class="select2drpdwn"
+                            [ngClass]="{'errorSelect2': personalSubmitted && prsntAdrs['country'].errors}"
+                            placeholder="select a country" formControlName="country"
+                            (update)="updateCountry('present',$event)"></select2>
+                        <div class="text-danger" *ngIf="personalSubmitted && prsntAdrs['country'].errors">Country is
+                            required</div>
                     </div>
                     <div class="col">
                         <label>State</label>
-                        <select2 [data]="prstState" class="select2drpdwn" [ngClass]="{'errorSelect2': personalSubmitted && prsntAdrs['state'].errors}"  placeholder="select a state" formControlName="state"></select2>
+                        <select2 [data]="prstState" class="select2drpdwn"
+                            [ngClass]="{'errorSelect2': personalSubmitted && prsntAdrs['state'].errors}"
+                            placeholder="select a state" formControlName="state"></select2>
+                        <div class="text-danger" *ngIf="personalSubmitted && prsntAdrs['state'].errors">State is
+                            required</div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -61,7 +74,8 @@
                         <label>Address Line 1</label>
                         <input type="text" class="form-control" formControlName="addressLine1"
                             [ngClass]="{'errorBox': personalSubmitted && prsntAdrs['addressLine1'].errors}">
-                        <div class="text-danger" *ngIf="personalSubmitted && prsntAdrs['addressLine1'].errors">Address is
+                        <div class="text-danger" *ngIf="personalSubmitted && prsntAdrs['addressLine1'].errors">Address
+                            is
                             required</div>
                     </div>
                     <div class="col">
@@ -95,32 +109,39 @@
                     </div>
                     <div class="col">
                         <label>Zipcode</label>
-                        <input type="text" class="form-control" formControlName="zipcode"
+                        <input type="text" class="form-control" maxlength="6" formControlName="zipcode"
                             [ngClass]="{'errorBox': personalSubmitted && prsntAdrs['zipcode'].errors}">
-                        <!-- <div *ngIf="personalSubmitted && prsntAdrs['zipcode'].errors">
-                                            <div class="text-danger" *ngIf="prsntAdrs['zipcode']errors.['required']">Zipcode is required</div>
-                                            <div class="text-danger" *ngIf="prsntAdrs['zipcode']errors['email']">Zipcode must be 6 digits</div>
-                                        </div>
-                                    <div class="text-danger" *ngIf="personalSubmitted && prsntAdrs['zipcode'].errors">Zipcode is required</div> -->
+                        <div *ngIf="personalSubmitted && prsntAdrs['zipcode'].errors">
+                            <div class="text-danger" *ngIf="prsntAdrs['zipcode'].errors['required']">Zipcode is required
+                            </div>
+                            <div class="text-danger" *ngIf="prsntAdrs['zipcode'].errors['minlength']">Zipcode must be 6
+                                digits</div>
+                        </div>
                     </div>
                 </div>
             </form>
 
-            <label class="mt-2"><input type="checkbox" class="form-check-input" (click)="sameAddress = !sameAddress"> Permanent Address is same as Present Address </label>
+            <label class="mt-2"><input type="checkbox" class="form-check-input" (change)="toggleAddress()">
+                Permanent Address is same as Present Address </label>
             <form formGroupName="permanentAddress" class="my-3" *ngIf="!sameAddress">
-                <h6 class="mb-2">Permanent Address</h6>
+                <h6 class="mb-2">Permanent Address <span class="text-danger">*</span></h6>
                 <div class="row">
                     <div class="col">
                         <label>Country</label>
-                        <select class="form-control" formControlName="country">
-            
-                        </select>
+                        <select2 [data]="perCountry" class="select2drpdwn"
+                            [ngClass]="{'errorSelect2': personalSubmitted && perAdrs['country'].errors}"
+                            placeholder="select a country" formControlName="country"
+                            (update)="updateCountry('permanent',$event)"></select2>
+                        <div class="text-danger" *ngIf="personalSubmitted && perAdrs['country'].errors">Country is
+                            required</div>
                     </div>
                     <div class="col">
                         <label>State</label>
-                        <select class="form-control" formControlName="state">
-            
-                        </select>
+                        <select2 [data]="perState" class="select2drpdwn"
+                            [ngClass]="{'errorSelect2': personalSubmitted && perAdrs['state'].errors}"
+                            placeholder="select a state" formControlName="state"></select2>
+                        <div class="text-danger" *ngIf="personalSubmitted && perAdrs['state'].errors">State is
+                            required</div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -162,46 +183,65 @@
                     </div>
                     <div class="col">
                         <label>Zipcode</label>
-                        <input type="text" class="form-control" formControlName="zipcode"
+                        <input type="text" class="form-control" maxlength="6" formControlName="zipcode"
                             [ngClass]="{'errorBox': personalSubmitted && perAdrs['zipcode'].errors}">
-                        <!-- <div *ngIf="personalSubmitted && perAdrs['zipcode'].errors">
-                                                <div class="text-danger" *ngIf="perAdrs['zipcode']errors.['required']">Zipcode is required</div>
-                                                <div class="text-danger" *ngIf="perAdrs['zipcode']errors['email']">Zipcode must be 6 digits</div>
-                                            </div>
-                                        <div class="text-danger" *ngIf="personalSubmitted && perAdrs['zipcode'].errors">Zipcode is required</div> -->
+                        <div *ngIf="personalSubmitted && perAdrs['zipcode'].errors">
+                            <div class="text-danger" *ngIf="perAdrs['zipcode'].errors['required']">Zipcode is required
+                            </div>
+                            <div class="text-danger" *ngIf="perAdrs['zipcode'].errors['minlength']">Zipcode must be 6
+                                digits</div>
+                        </div>
                     </div>
                 </div>
             </form>
 
         </form>
 
-       
+
 
         <div class="row mt-3">
             <div class="col">
-                <label class="d-block">Gender</label>
-                <input type="radio" class="form-check-input" formControlName="gender"> Male
-                <input type="radio" class="form-check-input ms-3" formControlName="gender"> Female
+                <label class="d-block">Gender <span class="text-danger">*</span></label>
+                <label><input type="radio" class="form-check-input" value="male" formControlName="gender"
+                        [ngClass]="{'errorBox': personalSubmitted && p['gender'].errors}"> Male </label>
+                <label><input type="radio" class="form-check-input ms-3" value="female" formControlName="gender"
+                        [ngClass]="{'errorBox': personalSubmitted && p['gender'].errors}"> Female</label>
+                <div class="text-danger" *ngIf="personalSubmitted && p['gender'].errors">Gender is required</div>
 
-                <label class="d-block my-2">Date Of Birth</label>
-                <input type="date" class="form-control" formControlName="dob" [ngClass]="{'errorBox': personalSubmitted && p['dob'].errors}">
+                <label class="d-block mt-2">Date Of Birth <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" formControlName="dob"
+                    [ngClass]="{'errorBox': personalSubmitted && p['dob'].errors}">
                 <div class="text-danger" *ngIf="personalSubmitted && p['dob'].errors">Date of Birth is required</div>
-                <label class="d-block my-2">Date Of Birth</label>
-                <input type="date" class="form-control" formControlName="dob" [ngClass]="{'errorBox': personalSubmitted && p['dob'].errors}">
-                <div class="text-danger" *ngIf="personalSubmitted && p['dob'].errors">Date of Birth is required</div>
-            </div>
-            <div class="col" formArrayName="hobbies">
-                <label>Hobbies</label>
-                <div class="d-sm-flex mt-2 align-items-center" *ngFor="let hobby of hobbyControls;let i = index">
-                   <input type="text" placeholder="Your Hobby" [formControlName]="i" class="form-control">
-                   <i *ngIf="hobbyControls.length !== 4" class="fa fa-plus text-success ms-2 c-pointer" (click)="updateHobby('add')"></i> 
-                   <i *ngIf="hobbyControls.length !== 1" class="fa fa-minus text-danger ms-2 c-pointer" (click)="updateHobby('remove',i)"></i> 
+
+                <label class="d-block mt-2">Nationality <span class="text-danger">*</span></label>
+                <label><input type="radio" class="form-check-input" value="indian" formControlName="nationality"
+                        [ngClass]="{'errorBox': personalSubmitted && p['nationality'].errors}"> Indian
+                </label>
+                <label><input type="radio" class="form-check-input ms-3" value="others" formControlName="nationality"
+                        [ngClass]="{'errorBox': personalSubmitted && p['nationality'].errors}"> Others </label>
+                <div class="text-danger" *ngIf="personalSubmitted && p['nationality'].errors">Nationality is required
                 </div>
             </div>
-
+            <div class="col" formArrayName="hobbies">
+                <label>Hobbies <span class="text-danger">*</span></label>
+                <div class="d-sm-flex mt-2 align-items-center" *ngFor="let hobby of hobbyControls;let i = index">
+                    <input type="text" placeholder="Your Hobby" [formControlName]="i" class="form-control"
+                        [ngClass]="{'errorBox': (hobbyCheck || (personalSubmitted && hobbyCheck)) && hobby.invalid}">
+                    <i *ngIf="hobbyControls.length !== 4" class="fa fa-plus text-success ms-2 c-pointer"
+                        (click)="addHobby()"></i>
+                    <i *ngIf="hobbyControls.length !== 1" class="fa fa-minus text-danger ms-2 c-pointer"
+                        (click)="removeHobby(i)"></i>
+                </div>
+                <div class="text-danger"
+                    *ngIf="(hobbyCheck || (personalSubmitted && hobbyCheck)) && p['hobbies'].invalid">Please fill the
+                    Hobby</div>
+            </div>
         </div>
-        
-        <button class="btn btn-primary mt-2" [disabled]="personalBtnLoading">
+        <label class="mt-2">Description <i class="fas fa-info-circle fs-12" placement="top"
+                title="5000 characters only"></i></label>
+        <textarea class="form-control" formControlName="description" placeholder="Tell about yourself"></textarea>
+
+        <button class="btn btn-primary mt-2 float-end" [disabled]="personalBtnLoading">
             <ng-container *ngIf="personalBtnLoading, else elseBlock">
                 <i class="fas fa-spinner fa-spin me-1"></i>Loading</ng-container>
             <ng-template #elseBlock>Submit</ng-template>

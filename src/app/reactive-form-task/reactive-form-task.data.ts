@@ -76,3 +76,28 @@ export const allState: { [key: string]: Select2Data } = {
         { value: 'WV', label: 'West Virginia' },
     ],
 }
+
+export interface personalDetails {
+    "name": string;
+    "mobile"?: string;
+    "email": string;
+    "addressDetails": {
+        "presentAddress": address;
+        "permanentAddress": address;
+    }
+    "gender": string;
+    "dob": Date;
+    "hobbies": Array<string>;
+    "nationality": string;
+    "description": string;
+}
+export interface address {
+    "country": string;
+    "state": string;
+    "addressLine1": string;
+    "addressLine2"?: string;
+    "street": string;
+    "area": Date;
+    "city": string;
+    "zipcode": string;
+}

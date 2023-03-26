@@ -56,6 +56,11 @@ export class ReactiveFormComponent{
     console.log(this.reactiveForm);
     if (this.reactiveForm.valid) {
       console.log("reacitve form valid");
+      this.reactiveForm.reset()
+      this.reactiveForm.patchValue({
+        country: 'india',
+        gender: 'male',
+      });
     }
     
   }

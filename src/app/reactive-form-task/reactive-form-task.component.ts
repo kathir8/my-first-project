@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Select2Data, Select2UpdateEvent } from 'ng-select2-component';
-import { allState, country } from './reactive-form-task.data';
+import { allState, country, personalDetails } from './reactive-form-task.data';
 
 @Component({
   selector: 'app-reactive-form-task',
@@ -10,17 +10,18 @@ import { allState, country } from './reactive-form-task.data';
 })
 export class ReactiveFormTaskComponent {
   showPassword: boolean = false
-  loginSubmitted: boolean = false
-  loginBtnLoading:boolean = false
-  loginFormValid:boolean = false
+  loginSubmitted: boolean = false // to validate login form after login button click
+  loginBtnLoading: boolean = false // to show login button loading
+  loginFormValid: boolean = false // to toggle login and personal detail form
+
   loginForm = new FormGroup({
     "email": new FormControl("", [Validators.required, Validators.email]),
     "password": new FormControl("", Validators.required)
   })
-  personalSubmitted: boolean = false
-  personalBtnLoading:boolean = false
-  sameAddress: boolean = false
-  hobbyForm = new FormControl("", [Validators.required]);
+  personalSubmitted: boolean = false // to validate personal detail form after submit button click
+  personalBtnLoading: boolean = false // to show submit button loading
+  sameAddress: boolean = false // permanent address toggle
+  hobbyCheck: boolean = false // hobby validation while clicking plus button
 
   personalForm = new FormGroup({
     "name": new FormControl("", [Validators.required]),
@@ -37,8 +38,8 @@ export class ReactiveFormTaskComponent {
         "zipcode": new FormControl("", [Validators.required, Validators.minLength(6)])
       }),
       "permanentAddress": new FormGroup({
-        "country": new FormControl(""),
-        "state": new FormControl(""),
+        "country": new FormControl("", [Validators.required]),
+        "state": new FormControl("", [Validators.required]),
         "addressLine1": new FormControl("", [Validators.required]),
         "addressLine2": new FormControl(""),
         "street": new FormControl("", [Validators.required]),
@@ -49,7 +50,9 @@ export class ReactiveFormTaskComponent {
     }),
     "gender": new FormControl("", [Validators.required]),
     "dob": new FormControl("", [Validators.required]),
+    "nationality": new FormControl("indian", [Validators.required]),
     "hobbies": new FormArray([new FormControl("", [Validators.required])]),
+    "description": new FormControl("")
   })
 
 
@@ -67,43 +70,79 @@ export class ReactiveFormTaskComponent {
     return this.personalForm.controls.addressDetails.controls.permanentAddress.controls
   }
   get hobbyControls() {
-    return (<FormArray>this.personalForm.get('hobbies')).controls;
+    return this.personalForm.controls.hobbies.controls
   }
 
-  updateHobby(type: string, index?: number) {
-    if (type === "add") {
-      (<FormArray>this.personalForm.get('hobbies')).push(new FormControl("", [Validators.required]))
-    } else if (typeof index === "number") {
-      (<FormArray>this.personalForm.get('hobbies')).removeAt(index)
-    }
-  }
-  
   loginSubmit() {
     this.loginSubmitted = true
     this.loginBtnLoading = true
     console.log(this.loginForm);
     if (this.loginForm.valid) {
-      this.loginFormValid= true;
+      this.loginFormValid = true;
+      this.loginForm.reset()
       console.log(this.loginForm.controls);
     }
+    this.loginBtnLoading = false
+  }
 
-    setTimeout(() => {
-      this.loginBtnLoading = false
-    }, 1500);
+  toggleAddress() {
+
+    this.sameAddress = !this.sameAddress
+    const permanentAddress = this.personalForm.get('addressDetails')?.get('permanentAddress') as FormGroup;
+ 
+    for (let key in permanentAddress.controls) {
+      const control = permanentAddress.get(key)!;
+      if (this.sameAddress) {
+        control.clearValidators();
+      } else {
+        if (key === 'zipcode') {
+          control.setValidators([Validators.required, Validators.maxLength(50)]);
+        } else {
+          control.setValidators([Validators.required]);
+        }
+      }
+      control.updateValueAndValidity();
+    }
+  }
+
+  addHobby() {
+    if (this.p['hobbies'].valid) {
+      this.hobbyCheck = false;
+      (<FormArray>this.personalForm.get('hobbies')).push(new FormControl("", [Validators.required]));
+    } else {
+      this.hobbyCheck = true;
+    }
+  }
+  removeHobby(index: number) {
+    (<FormArray>this.personalForm.get('hobbies')).removeAt(index);
   }
 
   personalSubmit() {
-        this.personalSubmitted = true
-      this.personalBtnLoading = true
+    this.personalSubmitted = true
+    this.personalBtnLoading = true
+    this.hobbyCheck = true
 
-     console.log(this.personalForm);
+    console.log(this.personalForm);
     if (this.personalForm.valid) {
-      console.log(this.personalForm.value);
-    }
+      let tempObj: any = this.personalForm.value
+      tempObj['email'] = this.f['email'].value
+      let personalDetailsObj: personalDetails = tempObj
+      /* -----------------------------remove email in interface --------------------------------------------- */
+      // let personalDetailsObj: personalDetails = this.personalForm.value
 
-    setTimeout(() => {
-      this.personalBtnLoading = false
-    }, 1500);
+      if (this.sameAddress) {
+        personalDetailsObj['addressDetails']['permanentAddress'] = personalDetailsObj['addressDetails']['presentAddress']
+      }
+      console.log(personalDetailsObj);
+      setTimeout(() => {
+        this.personalForm.reset()
+        this.personalForm.patchValue({
+          nationality: 'indian'
+        });
+        this.personalBtnLoading = false
+      }, 1500);
+    }
+    this.personalBtnLoading = false
   }
 
   filterCharCode(event: any, type: string): void {
@@ -115,14 +154,19 @@ export class ReactiveFormTaskComponent {
   }
 
   /* ------------------------------ select2plugin ----------------------------- */
-  
+
   prstCountry: Select2Data = country;
   prstState: Select2Data = [];
 
-  updateCountry(event: Select2UpdateEvent<any>) {
-    this.prstState = allState[event.value]
+  perCountry: Select2Data = country;
+  perState: Select2Data = [];
+
+  updateCountry(type: string, event: Select2UpdateEvent<any>) {
+    if (type === 'present') {
+      this.prstState = allState[event.value]
+    } else {
+      this.perState = allState[event.value]
+    }
   }
 
-  /* ----------------------------------- try ---------------------------------- */
-  
 }
