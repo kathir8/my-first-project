@@ -27,7 +27,6 @@ import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
 import { Select2Module } from 'ng-select2-component';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -62,7 +61,6 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     ReactiveFormsModule,
     Select2Module,
-    NgbTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

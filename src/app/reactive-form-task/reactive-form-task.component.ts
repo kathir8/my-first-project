@@ -120,15 +120,13 @@ export class ReactiveFormTaskComponent {
   personalSubmit() {
     this.personalSubmitted = true
     this.personalBtnLoading = true
-    this.hobbyCheck = true
+    this.hobbyCheck = true // Scenario - Submit btn click, then click add button of hobby to restrict error showing
 
     console.log(this.personalForm);
     if (this.personalForm.valid) {
       let tempObj: any = this.personalForm.value
       tempObj['email'] = this.f['email'].value
       let personalDetailsObj: personalDetails = tempObj
-      /* -----------------------------remove email in interface --------------------------------------------- */
-      // let personalDetailsObj: personalDetails = this.personalForm.value
 
       if (this.sameAddress) {
         personalDetailsObj['addressDetails']['permanentAddress'] = personalDetailsObj['addressDetails']['presentAddress']
