@@ -1,0 +1,32 @@
+<form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+
+<label for="username" class="form-label">Username</label>
+<div class="input-group" [ngClass]="{'mb-3': !(submitted && email.invalid)}">
+    <input type="text" ngModel #email="ngModel" name="email" required
+        class="form-control border-right-0" [ngClass]="{'errorBox': submitted && email.invalid}"
+        placeholder="Enter your username" id="email">
+    <span class="input-group-text" [ngClass]="{'errorBox': submitted && email.invalid}"><i
+            class="far fa-user"></i></span>
+</div>
+<ng-container *ngIf="submitted && email.invalid">
+    <div *ngIf="email.errors?.['required']" class="text-danger">Email is required</div>
+    <div *ngIf="email.errors?.['email']" class="text-danger">Email is invalid</div>
+</ng-container>
+
+<label for="password" class="form-label">Password</label>
+<div class="input-group" [ngClass]="{'mb-3': !(submitted && password.invalid)}">
+    <input [type]="pwdShow ? 'text': 'password'" ngModel #password="ngModel" name="password" required
+        class="form-control border-right-0" [ngClass]="{'errorBox': submitted && password.invalid}"
+        placeholder="Enter your password" id="password">
+    <span class="input-group-text c-pointer" [ngClass]="{'errorBox': submitted && password.invalid}"
+        (click)="pwdShow = !pwdShow"><i class="far" [ngClass]="pwdShow ? 'fa-eye-slash': 'fa-eye'"></i></span>
+</div>
+<div *ngIf="submitted && password.invalid" class="text-danger">Password is required</div>
+
+<button class="btn btn-primary" [disabled]="isLoading">
+    <ng-container *ngIf="isLoading; else loadingTemplate">
+        <i class="fa fa-spinner fa-spin"></i> Loading...
+    </ng-container>
+    <ng-template #loadingTemplate>Login</ng-template>
+</button>
+</form>

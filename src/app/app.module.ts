@@ -27,6 +27,7 @@ import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
 import { Select2Module } from 'ng-select2-component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { Select2Module } from 'ng-select2-component';
     CustomPipeComponent,
     MomentPipe,
     FilterPipe,
-    ReactiveFormTaskComponent
+    ReactiveFormTaskComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
