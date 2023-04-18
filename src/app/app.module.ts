@@ -28,6 +28,8 @@ import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
 import { Select2Module } from 'ng-select2-component';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { ParentEncapsulationComponent } from './parent-encapsulation/parent-encapsulation.component';
+import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsulation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     MomentPipe,
     FilterPipe,
     ReactiveFormTaskComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ParentEncapsulationComponent,
+    ChildEncapsulationComponent
   ],
   imports: [
     BrowserModule,
