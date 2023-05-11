@@ -1,0 +1,5 @@
+<input type="text" #observe>
+<button (click)="observeChange(observe.value)">change observable value</button>
+<p> behavior subject observable : {{changedObservable}}</p>
+<hr>
+<p> subject observable : {{subjectVar}}</p>

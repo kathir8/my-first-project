@@ -1,0 +1,16 @@
+<style>
+    div{
+        border: 1px solid grey;
+        min-height: 50px;
+        background: #80808094;
+    }
+</style>
+
+<div>
+    this is parent
+    <br><br>
+    from child using @output: {{fromChild}}
+</div>
+
+<app-communicate-child [fromParent]="parentStr" (sendToParent)="fromChild = $event"/>
+<app-communicate-child2/>

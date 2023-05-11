@@ -16,7 +16,6 @@ import { ParentTaskComponent } from './parent-task/parent-task.component';
 import { ChildTaskComponent } from './child-task/child-task.component';
 import { ServiceTaskComponent } from './service-task/service-task.component';
 import { ViewChildTaskComponent } from './view-child-task/view-child-task.component';
-import { HttpListComponent } from './http-list/http-list.component';
 import { PipelinesComponent } from './pipelines/pipelines.component';
 import { TemplateReferenceComponent } from './template-reference/template-reference.component';
 import { TempRefAgeComponent } from './temp-ref-age/temp-ref-age.component';
@@ -30,6 +29,11 @@ import { Select2Module } from 'ng-select2-component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ParentEncapsulationComponent } from './parent-encapsulation/parent-encapsulation.component';
 import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsulation.component';
+import { HttpApiComponent } from './http-api/http-api.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { CommunicateParentComponent } from './communicate-parent/communicate-parent.component';
+import { CommunicateChildComponent } from './communicate-parent/communicate-child/communicate-child.component';
+import { CommunicateChild2Component } from './communicate-parent/communicate-child2/communicate-child2.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,6 @@ import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsu
     ChildTaskComponent,
     ServiceTaskComponent,
     ViewChildTaskComponent,
-    HttpListComponent,
     PipelinesComponent,
     TemplateReferenceComponent,
     TempRefAgeComponent,
@@ -59,7 +62,12 @@ import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsu
     ReactiveFormTaskComponent,
     TemplateFormComponent,
     ParentEncapsulationComponent,
-    ChildEncapsulationComponent
+    ChildEncapsulationComponent,
+    HttpApiComponent,
+    RxjsComponent,
+    CommunicateParentComponent,
+    CommunicateChildComponent,
+    CommunicateChild2Component
   ],
   imports: [
     BrowserModule,

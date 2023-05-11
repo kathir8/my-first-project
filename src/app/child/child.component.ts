@@ -14,6 +14,5 @@ export class ChildComponent {
 
   sendtoParent(e:Event) {
     this.sendMsgEmitter.emit((e.target as HTMLInputElement).value)
-    
   }
 }

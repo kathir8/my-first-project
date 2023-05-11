@@ -1,19 +1,21 @@
 <div class="container">
-    <app-data-binding class="d-none"/>
-    <app-data-binding-exercise class="d-none"/>
-    <app-attr-dir class="d-none"/>
-    <app-divisible-task class="d-none"/>
-    <app-parent class="d-none"/>
-    <app-parent-task class="d-none"/>
-    <app-template-reference class="d-none"/>
-    <app-service-task class="d-none"/>
-    <app-view-child-task class="d-none"/>
-    <app-http-list class="d-none"/>
-    <app-pipelines class="d-none"/>
-    <app-custom-dir class="d-none"/>
-    <app-template-form class="d-none"/>
-    <app-reactive-form class="d-none"/>
-    <app-reactive-form-task class="d-none"/>
-    <app-custom-pipe class="d-none"/>
-    <app-parent-encapsulation/>
+    <app-data-binding *ngIf="show === 'data-binding'"/>
+    <app-data-binding-exercise *ngIf="show === 'data-binding-exercise'"/>
+    <app-attr-dir *ngIf="show === 'attr-dir'"/>
+    <app-divisible-task *ngIf="show === 'divisible-task'"/>
+    <app-parent *ngIf="show === 'parent'"/>
+    <app-parent-task *ngIf="show === 'parent-task'"/>
+    <app-template-reference *ngIf="show === 'template-reference'"/>
+    <app-service-task *ngIf="show === 'service-task'"/>
+    <app-view-child-task *ngIf="show === 'view-child-task'"/>
+    <app-pipelines *ngIf="show === 'pipelines'"/>
+    <app-custom-dir *ngIf="show === 'custom-dir'"/>
+    <app-template-form *ngIf="show === 'template-form'"/>
+    <app-reactive-form *ngIf="show === 'reactive-form'"/>
+    <app-reactive-form-task *ngIf="show === 'reactive-form-task'"/>
+    <app-custom-pipe *ngIf="show === 'custom-pipe'"/>
+    <app-parent-encapsulation *ngIf="show === 'parent-encapsulation'"/>
+    <app-http-api *ngIf="show === 'http-api'"/>
+    <app-rxjs *ngIf="show === 'rxjs'"/>
+    <app-communicate-parent *ngIf="show === 'communicate-parent'"/>
 </div>

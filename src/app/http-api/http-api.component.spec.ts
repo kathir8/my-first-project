@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttpListComponent } from './http-list.component';
+import { HttpApiComponent } from './http-api.component';
 
-describe('HttpListComponent', () => {
-  let component: HttpListComponent;
-  let fixture: ComponentFixture<HttpListComponent>;
+describe('HttpApiComponent', () => {
+  let component: HttpApiComponent;
+  let fixture: ComponentFixture<HttpApiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HttpListComponent ]
+      declarations: [ HttpApiComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HttpListComponent);
+    fixture = TestBed.createComponent(HttpApiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,19 @@
+<style>
+    div {
+        border: 1px solid #c22929;
+        min-height: 50px;
+        margin-top: 15px;
+        background: #c2292931;
+    }
+</style>
+
+<div>
+    child works!
+<br><br>
+from parent using @input : {{fromParent}}
+<button class="btn btn-primary" (click)="sendToChild()">send to parent</button>
+<br><br>
+
+    from constructor : {{valueFromParent}}
+</div>
+ 
