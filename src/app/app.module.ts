@@ -34,6 +34,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { CommunicateParentComponent } from './communicate-parent/communicate-parent.component';
 import { CommunicateChildComponent } from './communicate-parent/communicate-child/communicate-child.component';
 import { CommunicateChild2Component } from './communicate-parent/communicate-child2/communicate-child2.component';
+import { HoverDirective } from './hover.directive';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { CommunicateChild2Component } from './communicate-parent/communicate-chi
     RxjsComponent,
     CommunicateParentComponent,
     CommunicateChildComponent,
-    CommunicateChild2Component
+    CommunicateChild2Component,
+    HoverDirective,
   ],
   imports: [
     BrowserModule,
