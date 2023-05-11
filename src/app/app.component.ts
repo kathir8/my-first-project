@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  show: string = 'communicate-parent'
+  show: string = 'http-api'
 }

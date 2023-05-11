@@ -10,7 +10,10 @@ export class HttpApiService {
   
  
 
-  fetchTodos(url: string) {
-    return this.httpService.getCall(url)
+  fetchTodos(url: string,cbk:any) {
+    this.httpService.getCall(url).subscribe({
+      next: (res) => cbk(true,res),
+      error: (err) => cbk(false, err)
+    })
   }
 }

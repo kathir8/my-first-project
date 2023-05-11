@@ -13,13 +13,10 @@ export class HttpApiComponent {
     this.getTodos()
   }
   getTodos() {
-    this.httpApiService.fetchTodos('/todos').subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-      }
+    this.httpApiService.fetchTodos('/todos', (status: boolean, data: any) => {
+      if (status)
+      console.log(data);
+      
     })
   }
 
