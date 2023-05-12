@@ -35,6 +35,8 @@ import { CommunicateParentComponent } from './communicate-parent/communicate-par
 import { CommunicateChildComponent } from './communicate-parent/communicate-child/communicate-child.component';
 import { CommunicateChild2Component } from './communicate-parent/communicate-child2/communicate-child2.component';
 import { HoverDirective } from './hover.directive';
+import { GetterSetterComponent } from './getter-setter/getter-setter.component';
+import { SampleComponent } from './sample/sample.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { HoverDirective } from './hover.directive';
     CommunicateChildComponent,
     CommunicateChild2Component,
     HoverDirective,
+    GetterSetterComponent,
+    SampleComponent,
   ],
   imports: [
     BrowserModule,

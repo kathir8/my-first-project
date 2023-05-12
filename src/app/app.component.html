@@ -1,5 +1,6 @@
 <div class="container">
     <h5 class="text-center mb-2" appHover>My first project</h5>
+    <app-sample *ngIf="show === 'sample'"/>
     <app-data-binding *ngIf="show === 'data-binding'"/>
     <app-data-binding-exercise *ngIf="show === 'data-binding-exercise'"/>
     <app-attr-dir *ngIf="show === 'attr-dir'"/>
@@ -19,4 +20,5 @@
     <app-http-api *ngIf="show === 'http-api'"/>
     <app-rxjs *ngIf="show === 'rxjs'"/>
     <app-communicate-parent *ngIf="show === 'communicate-parent'"/>
+    <app-getter-setter *ngIf="show === 'getter-setter'"/>
 </div>
