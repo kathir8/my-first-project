@@ -1,0 +1,18 @@
+<div class="mx-3">
+        <h5 class="mt-2">Registration Form</h5>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <app-form [param]="param"/>
+            <form formGroupName="nomineeDetails" class="my-3" *ngIf="f['nominee'].value">
+                <h6>Nominee Details</h6>
+                <app-form [param]="nomineeParam" />
+            </form>
+            <form formGroupName="guardianDetails" class="my-3" *ngIf="f['nominee'].value">
+                <h6>Guardian Details</h6>
+                <app-form [param]="guardianParam" />
+            </form>
+          
+            <button class="btn btn-primary mt-2" type="submit">Submit</button>
+        </form>
+        
+        
+</div>

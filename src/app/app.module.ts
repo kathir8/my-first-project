@@ -37,6 +37,11 @@ import { CommunicateChild2Component } from './communicate-parent/communicate-chi
 import { HoverDirective } from './hover.directive';
 import { GetterSetterComponent } from './getter-setter/getter-setter.component';
 import { SampleComponent } from './sample/sample.component';
+import { CgsComponent } from './cgs/cgs.component';
+import { FormComponent } from './cgs/form/form.component';
+import { MapComponent } from './rxjs/map.component';
+import { BasicComponent } from './rxjs/basic.component';
+import { ComplexComponent } from './rxjs/complex.component';
 
 @NgModule({
   declarations: [
@@ -74,13 +79,18 @@ import { SampleComponent } from './sample/sample.component';
     HoverDirective,
     GetterSetterComponent,
     SampleComponent,
+    CgsComponent,
+    FormComponent,
+    MapComponent,
+    BasicComponent,
+    ComplexComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Select2Module,
+    Select2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
