@@ -1,0 +1,122 @@
+{
+  "avail": {
+    "upper": 1,
+    "middle": 0,
+    "lower": 0,
+    "rac": 0,
+    "wl": 0,
+    "rac_booked": 1,
+    "wl_booked": 0,
+    "count": 5
+  },
+  "booked": [
+    {
+      "name": "kathir",
+      "age": "23",
+      "birth": "upper",
+      "id": "210520231502011"
+    },
+    {
+      "name": "aqeel",
+      "age": "24",
+      "birth": "middle",
+      "id": "210520231503172"
+    },
+    {
+      "name": "sankar",
+      "age": "23",
+      "birth": "lower",
+      "id": "210520231503373"
+    },
+    {
+      "name": "arul",
+      "age": "12",
+      "birth": "rac",
+      "id": "210520231504024"
+    },
+    {
+      "name": "PONN",
+      "age": "22",
+      "birth": "wl",
+      "id": "210520231504145"
+    },
+    [
+      {
+        "name": "aqeel",
+        "age": "24",
+        "birth": "middle",
+        "id": "210520231503172"
+      },
+      {
+        "name": "sankar",
+        "age": "23",
+        "birth": "lower",
+        "id": "210520231503373"
+      },
+      {
+        "name": "arul",
+        "age": "12",
+        "birth": "upper",
+        "id": "210520231504024"
+      },
+      {
+        "name": "PONN",
+        "age": "22",
+        "birth": "rac",
+        "id": "210520231504145"
+      }
+    ],
+    [
+      {
+        "name": "aqeel",
+        "age": "24",
+        "birth": "middle",
+        "id": "210520231503172"
+      },
+      {
+        "name": "sankar",
+        "age": "23",
+        "birth": "lower",
+        "id": "210520231503373"
+      },
+      {
+        "name": "arul",
+        "age": "12",
+        "birth": "upper",
+        "id": "210520231504024"
+      },
+      {
+        "name": "PONN",
+        "age": "22",
+        "birth": "rac",
+        "id": "210520231504145"
+      },
+      [
+        {
+          "name": "aqeel",
+          "age": "24",
+          "birth": "middle",
+          "id": "210520231503172"
+        },
+        {
+          "name": "sankar",
+          "age": "23",
+          "birth": "lower",
+          "id": "210520231503373"
+        },
+        {
+          "name": "arul",
+          "age": "12",
+          "birth": "upper",
+          "id": "210520231504024"
+        },
+        {
+          "name": "PONN",
+          "age": "22",
+          "birth": "rac",
+          "id": "210520231504145"
+        }
+      ]
+    ]
+  ]
+}

@@ -1,0 +1,55 @@
+<div class="my-3" *ngIf="mainDiv">
+    <button class="btn btn-success me-3" [disabled]='noTkt' (click)="type = 'book';mainDiv=false">Book Ticket(s)</button>
+    <div class="btn btn-danger mx-3" (click)="type = 'cancel';mainDiv=false">Cancel Ticket(s)</div>
+    <button class="btn btn-secondary mx-3" [disabled]='noTkt' (click)="tickets('available')">Available Ticket(s)</button>
+    <div class="btn btn-primary mx-3" (click)="tickets('booked')">Booked Ticket(s)</div>
+    <h5 *ngIf="noTkt" class="text-danger text-center mt-2"> No Tickets availabe !</h5>
+    <h5 *ngIf="info" class="text-info text-center mt-2"> {{info}}</h5>
+</div>
+
+<div *ngIf="!mainDiv">
+    <form #bookForm="ngForm" (ngSubmit)="formSubmit(bookForm)">
+        <div class="row mb-2">
+          <ng-container *ngIf="type === 'book'">
+            <div class="col">
+                <label>Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" ngModel name="name" required maxlength="30"
+                    [ngClass]="{ 'is-invalid': bookForm.submitted && bookForm.controls['name'].invalid }">
+                <div *ngIf="bookForm.submitted && bookForm.controls['name'].invalid" class="text-danger">Full Name is required.
+                </div>
+            </div>
+            <div class="col">
+                <label>Age <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" ngModel name="age" maxlength="3" required (keypress)="numberOnly($event)"
+                    [ngClass]="{ 'is-invalid': bookForm.submitted && bookForm.controls['age'].invalid }">
+                <div *ngIf="bookForm.submitted && bookForm.controls['age'].invalid" class="text-danger">Age is required.</div>
+            </div>
+            <div class="col">
+                <label>Preferred Birth <span class="text-danger">*</span></label>
+                <select class="form-control" ngModel name="birth" required
+                    [ngClass]="{ 'is-invalid': bookForm.submitted && bookForm.controls['birth'].invalid }">
+                    <option value="upper">Upper</option>
+                    <option value="middle">Middle</option>
+                    <option value="lower">Lower</option>
+                </select>
+                <div *ngIf="bookForm.submitted && bookForm.controls['birth'].invalid" class="text-danger">Preferred Birth is
+                    required.</div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="type === 'cancel'">
+            <div class="col">
+                <label>Ticket Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" ngModel name="tktNo" required maxlength="20"
+                    [ngClass]="{ 'is-invalid': bookForm.submitted && bookForm.controls['tktNo'].invalid }">
+                <div *ngIf="bookForm.submitted && bookForm.controls['tktNo'].invalid" class="text-danger">Ticket Number is required.
+                </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <button class="btn btn-primary" type="submit">{{type | titlecase}}</button>
+        <div class="btn btn-danger ms-3" (click)="resetForm(bookForm)">Close</div>
+
+    </form>
+</div>

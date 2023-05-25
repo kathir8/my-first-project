@@ -42,6 +42,7 @@ import { FormComponent } from './cgs/form/form.component';
 import { MapComponent } from './rxjs/map.component';
 import { BasicComponent } from './rxjs/basic.component';
 import { ComplexComponent } from './rxjs/complex.component';
+import { TrainTktComponent } from './train-tkt/train-tkt.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ComplexComponent } from './rxjs/complex.component';
     MapComponent,
     BasicComponent,
     ComplexComponent,
+    TrainTktComponent,
   ],
   imports: [
     BrowserModule,
