@@ -43,6 +43,7 @@ import { MapComponent } from './rxjs/map.component';
 import { BasicComponent } from './rxjs/basic.component';
 import { ComplexComponent } from './rxjs/complex.component';
 import { TrainTktComponent } from './train-tkt/train-tkt.component';
+import { TypesComponent } from './rxjs/types/types.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { TrainTktComponent } from './train-tkt/train-tkt.component';
     BasicComponent,
     ComplexComponent,
     TrainTktComponent,
+    TypesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Subject, from, fromEvent, interval, map, of } from 'rxjs';
+import { BehaviorSubject, Subject, from, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-basic',
@@ -17,15 +17,13 @@ export class BasicComponent {
 
   ngOnInit() {
 
-    /* ----------------------------------- map ---------------------------------- */
+    console.log('-------map---------');
 
-    this.mapSubject.subscribe(value => {
-      console.log(value);
-    })
+    this.mapSubject.subscribe(value => console.log(value))
 
     this.subject.next('Updated to check');
 
-    /* --------------------------------- Subject -------------------------------- */
+    console.log('-------subject---------');
 
     this.subject.subscribe((value) => {  // Subscriber 1
       console.log('Subscriber 1 received Subject value:', value);
@@ -38,7 +36,8 @@ export class BasicComponent {
     });
 
 
-    /* ----------------------------- BehavorSubject ----------------------------- */
+    console.log('-------BehaviorSubject---------');
+
 
     this.behaviorSubject.subscribe((value) => {  // Subscriber 1
       console.log('Subscriber 1 received BehaviorSubject value:', value);
@@ -50,20 +49,16 @@ export class BasicComponent {
       console.log('Subscriber 2 received BehaviorSubject value:', value);
     });
 
-    /* ------------------------------- Observable ------------------------------- */
+
+    console.log('-------Observable---------');
 
     const variable = 'Hello, Observable!';
 
     const varObservable$ = of(variable)
-    varObservable$.subscribe(value => {
-      console.log(value);
-    })
-
-    const arr = [1, 2, 3, 4, 5];
-    const arrObservable$ = from(arr)
-    arrObservable$.subscribe(value => {
-      console.log(value);
-    })
+    varObservable$.subscribe(value => console.log(value))
+    
+    
+    console.log('-------of---------');
 
     const obj = {
       'name': 'kathir',
@@ -75,11 +70,20 @@ export class BasicComponent {
       console.log(value);
     })
 
+    console.log('-------from---------');
+
+
     const objFromObservable$ = from(Object.entries(obj))
     objFromObservable$.subscribe(([key, value]) => {
       console.log(key, value);
     })
 
+
+    const arr = [1, 2, 3, 4, 5];
+    const arrObservable$ = from(arr)
+    arrObservable$.subscribe(value => console.log(value))
+
+    
   }
 
 
