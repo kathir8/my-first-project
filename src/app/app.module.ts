@@ -44,7 +44,13 @@ import { BasicComponent } from './rxjs/basic.component';
 import { ComplexComponent } from './rxjs/complex.component';
 import { TrainTktComponent } from './train-tkt/train-tkt.component';
 import { TypesComponent } from './rxjs/types/types.component';
-
+import { NgrxComponent } from './ngrx/ngrx.component';
+import { CounterComponent } from './ngrx/counter/counter.component';
+import { CounterOutputComponent } from './ngrx/counter/counter-output/counter-output.component';
+import { CounterButtonsComponent } from './ngrx/counter/counter-buttons/counter-buttons.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './ngrx/counter/counter.reducer';
+import { CounterInputComponent } from './ngrx/counter/counter-input/counter-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,13 +94,21 @@ import { TypesComponent } from './rxjs/types/types.component';
     ComplexComponent,
     TrainTktComponent,
     TypesComponent,
+    NgrxComponent,
+    CounterComponent,
+    CounterOutputComponent,
+    CounterButtonsComponent,
+    CounterInputComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Select2Module
+    Select2Module,
+    StoreModule.forRoot({
+      counter: counterReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
