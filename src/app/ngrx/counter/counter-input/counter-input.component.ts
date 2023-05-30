@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store'
-import { CounterInterface } from '../counter.state';
-import { customIncrement, nameChange } from '../counter.action';
+import { CounterState } from '../state/counter.state';
+import { customIncrement, nameChange } from '../state/counter.action';
+import { getName } from '../state/counter.selectors';
+import { Observable } from 'rxjs'
 @Component({
   selector: 'app-counter-input',
   templateUrl: './counter-input.component.html'
 })
 export class CounterInputComponent {
-constructor(private store: Store<{ counter: CounterInterface }>){ }
+  constructor(private store: Store<{ counter: CounterState }>) { }
   value!: number
-  name!:string
+  name$!: Observable<string>
   onAdd() {
-    this.store.dispatch(customIncrement({count:this.value}))
+    this.store.dispatch(customIncrement({ count: this.value }))
   }
   nameChange() {
     this.store.dispatch(nameChange())
   }
   ngOnInit() {
-    this.store.select('counter').subscribe(val => {
-      this.name = val.name
-    })
+    this.name$ = this.store.select(getName)
   }
 }
