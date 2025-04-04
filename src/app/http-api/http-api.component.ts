@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { HttpApiService } from './http-api.service';
 
 @Component({
-  selector: 'app-http-api',
-  templateUrl: './http-api.component.html',
-  styleUrls: ['./http-api.component.css']
+    selector: 'app-http-api',
+    templateUrl: './http-api.component.html',
+    styleUrls: ['./http-api.component.css'],
+    standalone: false
 })
 export class HttpApiComponent {
  

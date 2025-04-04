@@ -33,9 +33,10 @@ interface ErrObj {
   "message": string
 }
 @Component({
-  selector: 'app-train-tkt',
-  templateUrl: './train-tkt.component.html',
-  styleUrls: ['./train-tkt.component.css']
+    selector: 'app-train-tkt',
+    templateUrl: './train-tkt.component.html',
+    styleUrls: ['./train-tkt.component.css'],
+    standalone: false
 })
 export class TrainTktComponent {
   mainDiv: boolean = true

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { BehaviorSubject, Subject, from, map, of } from 'rxjs';
 
 @Component({
-  selector: 'app-basic',
-  template: '',
+    selector: 'app-basic',
+    template: '',
+    standalone: false
 })
   
 export class BasicComponent {

@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NameService } from '../name.service';
 
 @Component({
-  selector: 'app-service-task',
-  templateUrl: './service-task.component.html',
-  styleUrls: ['./service-task.component.css']
+    selector: 'app-service-task',
+    templateUrl: './service-task.component.html',
+    styleUrls: ['./service-task.component.css'],
+    standalone: false
 })
 export class ServiceTaskComponent implements OnInit{
 

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-communicate-parent',
-  templateUrl: './communicate-parent.component.html'
+    selector: 'app-communicate-parent',
+    templateUrl: './communicate-parent.component.html',
+    standalone: false
 })
 export class CommunicateParentComponent {
   parentStr: string = 'this is from parent to child'

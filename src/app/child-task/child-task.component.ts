@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-child-task',
-  templateUrl: './child-task.component.html',
-  styleUrls: ['./child-task.component.css']
+    selector: 'app-child-task',
+    templateUrl: './child-task.component.html',
+    styleUrls: ['./child-task.component.css'],
+    standalone: false
 })
 export class ChildTaskComponent {
   content = [

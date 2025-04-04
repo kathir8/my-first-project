@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-data-binding',
-  templateUrl: './data-binding.component.html',
-  styleUrls: ['./data-binding.component.css']
+    selector: 'app-data-binding',
+    templateUrl: './data-binding.component.html',
+    styleUrls: ['./data-binding.component.css'],
+    standalone: false
 })
 export class DataBindingComponent {
   btnDisabled: boolean = true

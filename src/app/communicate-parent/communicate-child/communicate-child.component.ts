@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommunicateParentComponent } from '../communicate-parent.component';
 
 @Component({
-  selector: 'app-communicate-child',
-  templateUrl: './communicate-child.component.html'
+    selector: 'app-communicate-child',
+    templateUrl: './communicate-child.component.html',
+    standalone: false
 })
 export class CommunicateChildComponent {
   @Input()

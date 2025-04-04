@@ -1,7 +1,8 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appSetBackground]'
+    selector: '[appSetBackground]',
+    standalone: false
 })
 export class SetBackgroundDirective {
 

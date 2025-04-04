@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-cgs',
-  templateUrl: './cgs.component.html',
-  styleUrls: ['./cgs.component.css']
+    selector: 'app-cgs',
+    templateUrl: './cgs.component.html',
+    styleUrls: ['./cgs.component.css'],
+    standalone: false
 })
 export class CgsComponent {
 
