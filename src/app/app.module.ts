@@ -25,7 +25,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
-import { Select2Module } from 'ng-select2-component';
+import { Select2 } from 'ng-select2-component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ParentEncapsulationComponent } from './parent-encapsulation/parent-encapsulation.component';
 import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsulation.component';
@@ -94,7 +94,7 @@ import { TypesComponent } from './rxjs/types/types.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Select2Module
+    Select2
   ],
   providers: [],
   bootstrap: [AppComponent]

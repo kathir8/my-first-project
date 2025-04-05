@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class AppComponent {
-  show: string = 'communicate-parent'
+  show: string = 'reactive-form-task'
 }
