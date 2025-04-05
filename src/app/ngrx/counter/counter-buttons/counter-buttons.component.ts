@@ -5,7 +5,8 @@ import { decrement, increment, reset } from '../state/counter.action';
 
 @Component({
   selector: 'app-counter-buttons',
-  templateUrl: './counter-buttons.component.html'
+  templateUrl: './counter-buttons.component.html',
+  standalone: false
 })
 export class CounterButtonsComponent {
   constructor(private store: Store<{ counter: CounterState }>) { }

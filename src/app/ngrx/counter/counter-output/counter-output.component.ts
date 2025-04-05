@@ -5,7 +5,8 @@ import { getCounter } from '../state/counter.selectors';
 import { Observable } from 'rxjs'
 @Component({
   selector: 'app-counter-output',
-  templateUrl: './counter-output.component.html'
+  templateUrl: './counter-output.component.html',
+  standalone: false
 })
 export class CounterOutputComponent {
   constructor(private store: Store<{ counter: CounterState }>) { }

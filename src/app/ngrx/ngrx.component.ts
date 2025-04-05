@@ -6,7 +6,8 @@ export interface AppState {
 
 @Component({
   selector: 'app-ngrx',
-  templateUrl: './ngrx.component.html'
+  templateUrl: './ngrx.component.html',
+  standalone: false
 })
 export class NgrxComponent {
 
