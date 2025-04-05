@@ -3,10 +3,11 @@ import { concat, from, interval, merge, of, timer, zip, forkJoin, throwError, fr
 import { auditTime, catchError, debounceTime, delay, distinct, endWith, filter, finalize, repeat, skip, startWith, take, tap, throttleTime, timeout, withLatestFrom } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-types',
-  template: `<input id='debounce' placeholder="debounce">
+    selector: 'app-types',
+    template: `<input id='debounce' placeholder="debounce">
   
-  <div class="btn btn-primary ms-2 btn-sm" id="throttle">Throttle</div>`
+  <div class="btn btn-primary ms-2 btn-sm" id="throttle">Throttle</div>`,
+    standalone: false
 })
 export class TypesComponent {
 

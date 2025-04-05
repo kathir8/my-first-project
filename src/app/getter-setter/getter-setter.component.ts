@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { GetterSetterService } from './getter-setter.service';
 
 @Component({
-  selector:'app-getter-setter',
-  template: ''
+    selector: 'app-getter-setter',
+    template: '',
+    standalone: false
 })
 export class GetterSetterComponent {
   constructor(private getterSetterService: GetterSetterService) {

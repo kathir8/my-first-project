@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-divisible-task',
-  templateUrl: './divisible-task.component.html',
-  styleUrls: ['./divisible-task.component.css']
+    selector: 'app-divisible-task',
+    templateUrl: './divisible-task.component.html',
+    styleUrls: ['./divisible-task.component.css'],
+    standalone: false
 })
 export class DivisibleTaskComponent {
 isDisabled: boolean = true

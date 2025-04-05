@@ -4,9 +4,10 @@ import { Select2Data, Select2UpdateEvent } from 'ng-select2-component';
 import { allState, country, personalDetails } from './reactive-form-task.data';
 
 @Component({
-  selector: 'app-reactive-form-task',
-  templateUrl: './reactive-form-task.component.html',
-  styleUrls: ['./reactive-form-task.component.css']
+    selector: 'app-reactive-form-task',
+    templateUrl: './reactive-form-task.component.html',
+    styleUrls: ['./reactive-form-task.component.css'],
+    standalone: false
 })
 export class ReactiveFormTaskComponent {
   showPassword: boolean = false

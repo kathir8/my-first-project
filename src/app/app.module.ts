@@ -25,7 +25,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { MomentPipe, FilterPipe } from './custom-pipe/custom.pipe';
 import { ReactiveFormTaskComponent } from './reactive-form-task/reactive-form-task.component';
-import { Select2Module } from 'ng-select2-component';
+import { Select2 } from 'ng-select2-component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ParentEncapsulationComponent } from './parent-encapsulation/parent-encapsulation.component';
 import { ChildEncapsulationComponent } from './child-encapsulation/child-encapsulation.component';
@@ -106,16 +106,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Select2Module,
-    StoreModule.forRoot({
-      counter: counterReducer
-    }),
-    StoreDevtoolsModule.instrument({
-      logOnly: !isDevMode(), // Restrict extension to log-only mode
-      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-      trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
-      traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
-    }),
+    Select2
   ],
   providers: [],
   bootstrap: [AppComponent]

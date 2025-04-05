@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { of, map, filter, combineLatest } from 'rxjs'
 
 @Component({
-  selector: 'app-complex',
-  template: `<div *ngIf="data$ | async as data">
+    selector: 'app-complex',
+    template: `<div *ngIf="data$ | async as data">
       <div *ngFor="let user of data.users">
       {{user.name}}
       </div>
@@ -15,7 +15,8 @@ import { of, map, filter, combineLatest } from 'rxjs'
       <div *ngFor="let user of data.filteredUsers">
       {{user.name}}
       </div>
-    </div>`
+    </div>`,
+    standalone: false
 })
   
 export class ComplexComponent {

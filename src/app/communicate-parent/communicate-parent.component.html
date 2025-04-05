@@ -9,7 +9,7 @@
 <div>
     this is parent
     <br><br>
-    from child using @output: {{fromChild}}
+    from child using at output: {{fromChild}}
 </div>
 
 <app-communicate-child [fromParent]="parentStr" (sendToParent)="fromChild = $event"/>

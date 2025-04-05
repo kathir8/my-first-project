@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { from, map, of, delay, mergeMap, concatMap, switchMap, exhaustMap } from 'rxjs'
 @Component({
-  selector: 'app-map',
-  template: ''
+    selector: 'app-map',
+    template: '',
+    standalone: false
 })
 export class MapComponent {
   private arr = [1, 2, 3, 4, 5]

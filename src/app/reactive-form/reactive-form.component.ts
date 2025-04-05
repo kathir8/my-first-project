@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup,Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-reactive-form',
-  templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.css']
+    selector: 'app-reactive-form',
+    templateUrl: './reactive-form.component.html',
+    styleUrls: ['./reactive-form.component.css'],
+    standalone: false
 })
 export class ReactiveFormComponent{
 
