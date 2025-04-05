@@ -51,7 +51,6 @@ import { CounterButtonsComponent } from './ngrx/counter/counter-buttons/counter-
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './ngrx/counter/state/counter.reducer';
 import { CounterInputComponent } from './ngrx/counter/counter-input/counter-input.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +98,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CounterComponent,
     CounterOutputComponent,
     CounterButtonsComponent,
-    CounterInputComponent,
+    CounterInputComponent
   ],
   imports: [
     BrowserModule,
