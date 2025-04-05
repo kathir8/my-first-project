@@ -1,26 +1,15 @@
-<div class="container">
-    <h5 class="text-center mb-2" appHover>My first project</h5>
-    <app-sample *ngIf="show === 'sample'"/>
-    <app-data-binding *ngIf="show === 'data-binding'"/>
-    <app-data-binding-exercise *ngIf="show === 'data-binding-exercise'"/>
-    <app-attr-dir *ngIf="show === 'attr-dir'"/>
-    <app-divisible-task *ngIf="show === 'divisible-task'"/>
-    <app-parent *ngIf="show === 'parent'"/>
-    <app-parent-task *ngIf="show === 'parent-task'"/>
-    <app-template-reference *ngIf="show === 'template-reference'"/>
-    <app-service-task *ngIf="show === 'service-task'"/>
-    <app-view-child-task *ngIf="show === 'view-child-task'"/>
-    <app-pipelines *ngIf="show === 'pipelines'"/>
-    <app-custom-dir *ngIf="show === 'custom-dir'"/>
-    <app-template-form *ngIf="show === 'template-form'"/>
-    <app-reactive-form *ngIf="show === 'reactive-form'"/>
-    <app-reactive-form-task *ngIf="show === 'reactive-form-task'"/>
-    <app-custom-pipe *ngIf="show === 'custom-pipe'"/>
-    <app-parent-encapsulation *ngIf="show === 'parent-encapsulation'"/>
-    <app-http-api *ngIf="show === 'http-api'"/>
-    <app-rxjs *ngIf="show === 'rxjs'"/>
-    <app-communicate-parent *ngIf="show === 'communicate-parent'"/>
-    <app-getter-setter *ngIf="show === 'getter-setter'"/>
-    <app-cgs *ngIf="show === 'cgs'"/>
-    <app-train-tkt *ngIf="show === 'train-tkt'"/>
+<h5 class="text-center mb-2" appHover>My first project</h5>
+<div class="row">
+  <div class="col-2 menu">
+    <ul>
+      <li *ngFor="let item of menuList" [class.active]="item.key === show" (click)="show = item.key">
+        {{ item.label }}
+      </li>
+    </ul>
+  </div>
+  <div class="col px-2">
+    <ng-container *ngFor="let item of menuList">
+      <ng-container *ngIf="show === item.key" [ngComponentOutlet]="item.component"></ng-container>
+    </ng-container>
+  </div>
 </div>
